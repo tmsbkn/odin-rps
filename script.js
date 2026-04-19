@@ -7,8 +7,10 @@ function getComputerChoice() {
     } else {
         choice = "Scissors";
     }
-    
+
     return choice;
 };
 
-console.log(getComputerChoice());
+let computerChoice = getComputerChoice();
+
+console.log(computerChoice);
