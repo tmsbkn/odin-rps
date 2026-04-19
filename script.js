@@ -13,4 +13,4 @@ function getComputerChoice() {
 
 let computerChoice = getComputerChoice();
 
-console.log(computerChoice);
+console.log('Computer chose', computerChoice);
