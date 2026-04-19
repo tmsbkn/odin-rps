@@ -23,33 +23,27 @@ let humanScore = 0;
 function playRound(humanChoice,computerChoice){
     let roundOutcome;
     if (humanChoice == computerChoice) {
-        roundOutcome = 'Tie';
-    } else if (computerChoice == 'ROCK' && humanChoice.toUppercase() == 'PAPER'){
-        roundOutcome = 'You win';
+        roundOutcome = 'Tie, play again';
+    } else if (
+        computerChoice == 'ROCK' && humanChoice.toUpperCase() == 'PAPER' ||
+        computerChoice == 'PAPER' && humanChoice.toUpperCase() == 'SCISSORS' || 
+        computerChoice == 'SCISSORS' && humanChoice.toUpperCase() == 'ROCK'
+    ){
+        roundOutcome = 'You Win! ' + humanChoice + ' beats ' + computerChoice;
         humanScore = humanScore++;
-    } else if(computerChoice == 'ROCK' && humanChoice.toUppercase() == 'SCISSORS'){
-        roundOutcome = 'You Lose';
+    } else if (
+        computerChoice == 'ROCK' && humanChoice.toUpperCase() == 'SCISSORS' ||
+        computerChoice == 'PAPER' && humanChoice.toUpperCase() == 'ROCK' ||
+        computerChoice == 'SCISSORS' && humanChoice.toUpperCase() == 'PAPER'
+        ){
+        roundOutcome = 'You Lose! ' + computerChoice + ' beats ' + humanChoice;
         computerScore = computerScore++;
-    }
-    else if (computerChoice == 'PAPER' && humanChoice.toUppercase() == 'SCISSORS'){
-        roundOutcome = 'You win';
-        humanScore = humanScore++;
-    } else if(computerChoice == 'PAPER' && humanChoice.toUppercase() == 'ROCK'){
-        roundOutcome = 'You Lose';
-        computerScore = computerScore++;
-    }
-    else if (computerChoice == 'SCISSORS' && humanChoice.toUppercase() == 'ROCK'){
-        roundOutcome = 'You win';
-        humanScore = humanScore++;
-    } else if(computerChoice == 'SCISSORS' && humanChoice.toUppercase() == 'PAPER'){
-        roundOutcome = 'You Lose';
-        computerScore = computerScore++;
-    }
-    else {
+    } else {
         roundOutcome = 'Type either ROCK, PAPER, or SCISSORS';
     }
 
     console.log(roundOutcome);
+    
     
 }
     const humanSelection = getUserChoice();
