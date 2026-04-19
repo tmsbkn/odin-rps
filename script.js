@@ -14,3 +14,16 @@ function getComputerChoice() {
 let computerChoice = getComputerChoice();
 
 console.log('Computer chose', computerChoice);
+
+// Get user choice using prompt
+function getUserChoice() {
+   let choice = prompt("Please choose your hand");
+    return choice;
+};
+
+let userChoice = getUserChoice();
+
+console.log('You chose', userChoice);
+
+let computerScore = 0;
+let humanScore = 0;
