@@ -1,11 +1,11 @@
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     if (choice == 0) {
-        choice = "Rock";
+        choice = "ROCK";
     } else if (choice == 1) {
-        choice = "Paper";
+        choice = "PAPER";
     } else {
-        choice = "Scissors";
+        choice = "SCISSORS";
     }
 
     return choice;
@@ -24,11 +24,29 @@ function playRound(humanChoice,computerChoice){
     let roundOutcome;
     if (humanChoice == computerChoice) {
         roundOutcome = 'Tie';
-    } else if (computerChoice == 'Rock' && humanChoice.toLowercase() == 'paper'){
+    } else if (computerChoice == 'ROCK' && humanChoice.toUppercase() == 'PAPER'){
         roundOutcome = 'You win';
         humanScore = humanScore++;
-    } else {
-        roundOutcome = 'Not sure yet';
+    } else if(computerChoice == 'ROCK' && humanChoice.toUppercase() == 'SCISSORS'){
+        roundOutcome = 'You Lose';
+        computerScore = computerScore++;
+    }
+    else if (computerChoice == 'PAPER' && humanChoice.toUppercase() == 'SCISSORS'){
+        roundOutcome = 'You win';
+        humanScore = humanScore++;
+    } else if(computerChoice == 'PAPER' && humanChoice.toUppercase() == 'ROCK'){
+        roundOutcome = 'You Lose';
+        computerScore = computerScore++;
+    }
+    else if (computerChoice == 'SCISSORS' && humanChoice.toUppercase() == 'ROCK'){
+        roundOutcome = 'You win';
+        humanScore = humanScore++;
+    } else if(computerChoice == 'SCISSORS' && humanChoice.toUppercase() == 'PAPER'){
+        roundOutcome = 'You Lose';
+        computerScore = computerScore++;
+    }
+    else {
+        roundOutcome = 'Type either ROCK, PAPER, or SCISSORS';
     }
 
     console.log(roundOutcome);
