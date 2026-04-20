@@ -1,0 +1,38 @@
+:root{
+    font-family: Inter, sans-serif;
+    font-size:18px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+main{
+    padding: 2rem 5ch;
+}
+h1{
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding-bottom: 0.1lh;
+}
+
+h2{
+    font-size: 1.25rem;
+    font-weight: 400;
+    padding-bottom: 0.1lh;
+}
+
+.button-wrapper{
+    margin-top: 10px;
+    display: flex;
+    gap: 1ch;
+}
+
+.button-wrapper button{
+    flex: 1;
+    height: 2em;
+}
