@@ -17,44 +17,43 @@ function getUserChoice() {
    return choice;
 }
 
-function playGame() {
-   let computerScore = 0;
-   let humanScore = 0;
+let computerScore = 0;
+let humanScore = 0;
 
-   function playRound(humanChoice, computerChoice) {
-      let roundOutcome;
-      if (humanChoice == computerChoice.toUpperCase()) {
-         roundOutcome = 'Tie, play again';
-      } else if (
-         (computerChoice == 'ROCK' && humanChoice.toUpperCase() == 'PAPER') ||
-         (computerChoice == 'PAPER' &&
-            humanChoice.toUpperCase() == 'SCISSORS') ||
-         (computerChoice == 'SCISSORS' && humanChoice.toUpperCase() == 'ROCK')
-      ) {
-         roundOutcome = 'You Win! ' + humanChoice + ' beats ' + computerChoice;
-         humanScore++;
-      } else if (
-         (computerChoice == 'ROCK' &&
-            humanChoice.toUpperCase() == 'SCISSORS') ||
-         (computerChoice == 'PAPER' && humanChoice.toUpperCase() == 'ROCK') ||
-         (computerChoice == 'SCISSORS' && humanChoice.toUpperCase() == 'PAPER')
-      ) {
-         roundOutcome = 'You Lose! ' + computerChoice + ' beats ' + humanChoice;
-         computerScore++;
-      } else {
-         roundOutcome = 'Type either ROCK, PAPER, or SCISSORS';
-      }
-      console.log(roundOutcome);
+const rockBtn = document.getElementById('rockBtn');
+const paperBtn = document.getElementById('paperBtn');
+const scissorsBtn = document.getElementById('scissorsBtn');
+
+function playRound(humanChoice, computerChoice) {
+   let roundOutcome;
+   if (humanChoice == computerChoice.toUpperCase()) {
+      roundOutcome = 'Tie, play again';
+   } else if (
+      (computerChoice == 'ROCK' && humanChoice.toUpperCase() == 'PAPER') ||
+      (computerChoice == 'PAPER' && humanChoice.toUpperCase() == 'SCISSORS') ||
+      (computerChoice == 'SCISSORS' && humanChoice.toUpperCase() == 'ROCK')
+   ) {
+      roundOutcome = 'You Win! ' + humanChoice + ' beats ' + computerChoice;
+      humanScore++;
+   } else if (
+      (computerChoice == 'ROCK' && humanChoice.toUpperCase() == 'SCISSORS') ||
+      (computerChoice == 'PAPER' && humanChoice.toUpperCase() == 'ROCK') ||
+      (computerChoice == 'SCISSORS' && humanChoice.toUpperCase() == 'PAPER')
+   ) {
+      roundOutcome = 'You Lose! ' + computerChoice + ' beats ' + humanChoice;
+      computerScore++;
+   } else {
+      roundOutcome = 'Type either ROCK, PAPER, or SCISSORS';
    }
-
-   playRound(getUserChoice(), getComputerChoice());
-   
-   console.log(
-      'Human score is ',
-      humanScore,
-      ' Computer score is ',
-      computerScore,
-   );
+   alert(roundOutcome);
 }
 
-playGame();
+rockBtn.addEventListener('click', function () {
+   playRound('ROCK', getComputerChoice());
+});
+paperBtn.addEventListener('click', function () {
+   playRound('PAPER', getComputerChoice());
+});
+scissorsBtn.addEventListener('click', function () {
+   playRound('SCISSORS', getComputerChoice());
+});
