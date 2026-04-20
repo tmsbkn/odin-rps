@@ -48,34 +48,7 @@ function playGame() {
    }
 
    playRound(getUserChoice(), getComputerChoice());
-   console.log(
-      'Human score is ',
-      humanScore,
-      ' Computer score is ',
-      computerScore,
-   );
-   playRound(getUserChoice(), getComputerChoice());
-   console.log(
-      'Human score is ',
-      humanScore,
-      ' Computer score is ',
-      computerScore,
-   );
-   playRound(getUserChoice(), getComputerChoice());
-   console.log(
-      'Human score is ',
-      humanScore,
-      ' Computer score is ',
-      computerScore,
-   );
-   playRound(getUserChoice(), getComputerChoice());
-   console.log(
-      'Human score is ',
-      humanScore,
-      ' Computer score is ',
-      computerScore,
-   );
-   playRound(getUserChoice(), getComputerChoice());
+   
    console.log(
       'Human score is ',
       humanScore,
