@@ -65,7 +65,7 @@ td{
     td:nth-child(3), th:nth-child(3){
         display: none;
     }
-    body{
+    /* body{
         background-color: pink;
-    }
+    } */
 }
