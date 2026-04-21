@@ -19,33 +19,56 @@ function getUserChoice() {
 
 let computerScore = 0;
 let humanScore = 0;
+let gameRound = 1;
 
 const rockBtn = document.getElementById('rockBtn');
 const paperBtn = document.getElementById('paperBtn');
 const scissorsBtn = document.getElementById('scissorsBtn');
+const resultTable = document.getElementById('score-body');
+
+let gameScore = [];
 
 function playRound(humanChoice, computerChoice) {
-   let roundOutcome;
+   const newRow = document.createElement('tr');
+   newRow.classList.add('row');
+
+   let roundResult = {};
+   roundResult.round = gameRound;
+   roundResult.youChose = humanChoice;
+   roundResult.computerChose = computerChoice;
+   let winner = '';
+
    if (humanChoice == computerChoice.toUpperCase()) {
-      roundOutcome = 'Tie, play again';
+      winner = 'Tie';
    } else if (
       (computerChoice == 'ROCK' && humanChoice.toUpperCase() == 'PAPER') ||
       (computerChoice == 'PAPER' && humanChoice.toUpperCase() == 'SCISSORS') ||
       (computerChoice == 'SCISSORS' && humanChoice.toUpperCase() == 'ROCK')
    ) {
-      roundOutcome = 'You Win! ' + humanChoice + ' beats ' + computerChoice;
+      winner = 'Human';
       humanScore++;
    } else if (
       (computerChoice == 'ROCK' && humanChoice.toUpperCase() == 'SCISSORS') ||
       (computerChoice == 'PAPER' && humanChoice.toUpperCase() == 'ROCK') ||
       (computerChoice == 'SCISSORS' && humanChoice.toUpperCase() == 'PAPER')
    ) {
-      roundOutcome = 'You Lose! ' + computerChoice + ' beats ' + humanChoice;
-      computerScore++;
-   } else {
-      roundOutcome = 'Type either ROCK, PAPER, or SCISSORS';
+      winner = 'Computer';
+      humanScore--;
    }
-   alert(roundOutcome);
+   roundResult.roundWinner = winner;
+   roundResult.score = humanScore;
+
+   gameRound++;
+
+   let rowLog = Object.values(roundResult);
+
+   rowLog.forEach((item) => {
+      let td = document.createElement('td');
+      td.innerText = item;
+      newRow.appendChild(td);
+   });
+
+   resultTable.appendChild(newRow);
 }
 
 rockBtn.addEventListener('click', function () {
