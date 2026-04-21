@@ -6,13 +6,12 @@
 *{
     margin: 0;
     padding: 0;
-    border: 0;
     font: inherit;
     vertical-align: baseline;
 }
 
 main{
-    padding: 2rem 5ch;
+    padding: 2rem 2ch;
 }
 h1{
     font-size: 1.5rem;
@@ -44,15 +43,29 @@ h2{
 
 #score-table{
     table-layout: auto;
+    border-collapse: collapse;
     width: 100%;
+    font-size: clamp(0.5rem, 2.073vw + -0.036rem, 1rem);
 }
 
 .table-heading-row{
-    font-size: 1.25rem;
+    font-weight: 700;
     text-align: left;
-    background-color: aqua;
+    
 }
 tr{
-    background-color: red;
+    padding: 10px;
 }
 
+td{
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 700px){
+    td:nth-child(3), th:nth-child(3){
+        display: none;
+    }
+    body{
+        background-color: pink;
+    }
+}

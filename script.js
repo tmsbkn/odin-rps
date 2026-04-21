@@ -1,11 +1,11 @@
 function getComputerChoice() {
    let choice = Math.floor(Math.random() * 3);
    if (choice == 0) {
-      choice = 'ROCK';
+      choice = 'Rock';
    } else if (choice == 1) {
-      choice = 'PAPER';
+      choice = 'Paper';
    } else {
-      choice = 'SCISSORS';
+      choice = 'Scissors';
    }
 
    return choice;
@@ -38,19 +38,19 @@ function playRound(humanChoice, computerChoice) {
    roundResult.computerChose = computerChoice;
    let winner = '';
 
-   if (humanChoice == computerChoice.toUpperCase()) {
+   if (humanChoice == computerChoice) {
       winner = 'Tie';
    } else if (
-      (computerChoice == 'ROCK' && humanChoice.toUpperCase() == 'PAPER') ||
-      (computerChoice == 'PAPER' && humanChoice.toUpperCase() == 'SCISSORS') ||
-      (computerChoice == 'SCISSORS' && humanChoice.toUpperCase() == 'ROCK')
+      (computerChoice == 'Rock' && humanChoice.toUpperCase() == 'PAPER') ||
+      (computerChoice == 'Paper' && humanChoice.toUpperCase() == 'SCISSORS') ||
+      (computerChoice == 'Scissors' && humanChoice.toUpperCase() == 'ROCK')
    ) {
       winner = 'Human';
       humanScore++;
    } else if (
-      (computerChoice == 'ROCK' && humanChoice.toUpperCase() == 'SCISSORS') ||
-      (computerChoice == 'PAPER' && humanChoice.toUpperCase() == 'ROCK') ||
-      (computerChoice == 'SCISSORS' && humanChoice.toUpperCase() == 'PAPER')
+      (computerChoice == 'Rock' && humanChoice.toUpperCase() == 'SCISSORS') ||
+      (computerChoice == 'Paper' && humanChoice.toUpperCase() == 'ROCK') ||
+      (computerChoice == 'Scissors' && humanChoice.toUpperCase() == 'PAPER')
    ) {
       winner = 'Computer';
       humanScore--;
@@ -72,11 +72,11 @@ function playRound(humanChoice, computerChoice) {
 }
 
 rockBtn.addEventListener('click', function () {
-   playRound('ROCK', getComputerChoice());
+   playRound('Rock', getComputerChoice());
 });
 paperBtn.addEventListener('click', function () {
-   playRound('PAPER', getComputerChoice());
+   playRound('Paper', getComputerChoice());
 });
 scissorsBtn.addEventListener('click', function () {
-   playRound('SCISSORS', getComputerChoice());
+   playRound('Scissors', getComputerChoice());
 });
