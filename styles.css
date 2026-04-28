@@ -4,12 +4,12 @@
     --color-primary: rgb(68, 57, 103);
 }
 *{
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body{
+        margin: 0;
+    padding: 0;
     background-color: var(--color-bg);
     color: white;
 }
@@ -23,14 +23,14 @@ body{
     align-items: end;
 }
 #game-area{
-    border: #000 solid 2px;
+    /* border: #000 solid 2px; */
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     gap: 20px;
 }
 
-#player-side, #computer-side{
+#player-side{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;

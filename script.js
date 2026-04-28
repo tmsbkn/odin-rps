@@ -3,7 +3,7 @@ const paperBtn = document.getElementById('paperBtn');
 const scissorsBtn = document.getElementById('scissorsBtn');
 const dynamiteBtn = document.getElementById('dynamiteBtn');
 const resultTable = document.getElementById('score-body');
-
+const outcomeMsg = document.getElementById('outcome-msg');
 let computerScore = 0;
 let humanScore = 0;
 let gameRound = 1;
@@ -49,8 +49,6 @@ function getComputerChoice() {
 }
 let userChoiceHistory = [];
 
-let gameScore = [];
-
 function playRound(humanChoice, computerChoice) {
    let roundResult = {};
    roundResult.round = gameRound;
@@ -77,10 +75,103 @@ function playRound(humanChoice, computerChoice) {
       winner = 'Computer';
       humanScore--;
    }
+   outcomeMsg.innerText = getSnark(humanChoice, computerChoice);
    roundResult.roundWinner = winner;
    roundResult.score = humanScore;
    userChoiceHistory.push(humanChoice);
-   console.log(roundResult.roundWinner);
+   console.log(roundResult);
 
    gameRound++;
+}
+
+let snarks = [
+   {
+      humanPick: 0,
+      computerPick: 0,
+      message: 'Whats hard like a Rock? Another Rock! We Tie!',
+   },
+   {
+      humanPick: 1,
+      computerPick: 0,
+      message: 'Paper wraps around Rock. You Win!',
+   },
+   {
+      humanPick: 2,
+      computerPick: 0,
+      message: 'ROCK SMASH SCISSORS! That means: You Lose!',
+   },
+   {
+      humanPick: 3,
+      computerPick: 0,
+      message: 'Fire in the Hole! Dynamite destroys all! You Win!',
+   },
+   {
+      humanPick: 0,
+      computerPick: 1,
+      message: "I think you're Rock has a PAPER CUT! I Win!",
+   },
+   {
+      humanPick: 1,
+      computerPick: 1,
+      message: 'Paper and Paper, someone should write a book. We Tie!',
+   },
+   {
+      humanPick: 2,
+      computerPick: 1,
+      message: 'Ouchie! Scissors cut up Paper. You Win this time!',
+   },
+   {
+      humanPick: 3,
+      computerPick: 1,
+      message: 'BOOM goes the Dynamite! You Win!',
+   },
+   {
+      humanPick: 0,
+      computerPick: 2,
+      message: 'My Scissors are no match for your Rock. You Win!',
+   },
+   {
+      humanPick: 1,
+      computerPick: 2,
+      message: 'CHOP CHOP, is what I say when I cut your paper up! I Win! You LOSE!',
+   },
+   {
+      humanPick: 2,
+      computerPick: 2,
+      message: "LETS HAVE A KIKI! Since we're Scissors Sisters now... We Tie!",
+   },
+   {
+      humanPick: 3,
+      computerPick: 2,
+      message: 'BANG! Watch out for flying scissor parts! You Win!',
+   },
+   {
+      humanPick: 0,
+      computerPick: 3,
+      message:
+         "It's demolition time! My Dynamite blows up your rock which means YOU LOSE!",
+   },
+   {
+      humanPick: 1,
+      computerPick: 3,
+      message: 'BURN BABY BURN! My dynamite made your paper catch fire. YOU LOSE!',
+   },
+   {
+      humanPick: 2,
+      computerPick: 3,
+      message: 'Can Dynamite melt metal? OH YEAH IT CAN! YOU LOSE!',
+   },
+   {
+      humanPick: 3,
+      computerPick: 3,
+      message:
+         'BOOM! They say war never changes. I just hope one of us picks different next time. TIE!',
+   },
+];
+
+function getSnark(humanChoice, computerChoice) {
+   let chosenSnark = snarks.filter(function (el) {
+      return el.humanPick === humanChoice && el.computerPick == computerChoice;
+   });
+   return chosenSnark[0].message;
 }
