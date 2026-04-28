@@ -1,6 +1,7 @@
 const rockBtn = document.getElementById('rockBtn');
 const paperBtn = document.getElementById('paperBtn');
 const scissorsBtn = document.getElementById('scissorsBtn');
+const dynamiteBtn = document.getElementById('dynamiteBtn');
 const resultTable = document.getElementById('score-body');
 
 let computerScore = 0;
@@ -16,6 +17,9 @@ paperBtn.addEventListener('click', function () {
 scissorsBtn.addEventListener('click', function () {
    playRound(2, getComputerChoice());
 });
+dynamiteBtn.addEventListener('click', function () {
+   playRound(3, getComputerChoice());
+});
 
 function averageChoice(choices, toRound) {
    let lastChoices = choices.slice(-toRound);
@@ -28,25 +32,19 @@ function averageChoice(choices, toRound) {
 function getComputerChoice() {
    let choice = 0;
    if (gameRound < 5) {
-      choice = Math.floor(Math.random() * 3);
+      choice = Math.floor(Math.random() * 4);
    } else {
       let userFavChoice = averageChoice(userChoiceHistory, 5);
       if (userFavChoice == 0) {
          choice = 1;
       } else if (userFavChoice == 1) {
          choice = 2;
-      } else {
+      } else if (userFavChoice == 2) {
          choice = 0;
+      } else {
+         choice = 3;
       }
    }
-   // if (choice == 0) {
-   //    choice = 'Rock';
-   // } else if (choice == 1) {
-   //    choice = 'Paper';
-   // } else {
-   //    choice = 'Scissors';
-   // }
-
    return choice;
 }
 let userChoiceHistory = [];
@@ -65,14 +63,16 @@ function playRound(humanChoice, computerChoice) {
    } else if (
       (computerChoice == 0 && humanChoice == 1) ||
       (computerChoice == 1 && humanChoice == 2) ||
-      (computerChoice == 2 && humanChoice == 0)
+      (computerChoice == 2 && humanChoice == 0) ||
+      humanChoice == 3
    ) {
       winner = 'Human';
       humanScore++;
    } else if (
       (computerChoice == 0 && humanChoice == 2) ||
       (computerChoice == 1 && humanChoice == 0) ||
-      (computerChoice == 2 && humanChoice == 1)
+      (computerChoice == 2 && humanChoice == 1) ||
+      computerChoice == 3
    ) {
       winner = 'Computer';
       humanScore--;
@@ -80,7 +80,7 @@ function playRound(humanChoice, computerChoice) {
    roundResult.roundWinner = winner;
    roundResult.score = humanScore;
    userChoiceHistory.push(humanChoice);
-   console.log(userChoiceHistory.slice(-8));
+   console.log(roundResult.roundWinner);
 
    gameRound++;
 }
