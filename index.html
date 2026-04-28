@@ -7,33 +7,27 @@
       <link href="styles.css" rel="stylesheet" />
    </head>
    <body>
-      <header></header>
-      <main>
-         <h1>This is Rock Paper Scissors</h1>
-         <h2>Now in a UI!</h2>
-         <div class="button-wrapper">
-            <button id="rockBtn">Rock</button>
-            <button id="paperBtn">Paper</button>
-            <button id="scissorsBtn">Scissors</button>
+      <div class="site-wrapper">
+         <header>
+            <h1>This is Rock Paper Scissors</h1>
+            <h2>Now in a UI!</h2>
+         </header>
+         <div id="game-area">
+            <div id="player-side">
+               <div class="button" id="rockBtn">Rock</div>
+               <div class="button" id="paperBtn">Paper</div>
+               <div class="button" id="scissorsBtn">Scissors</div>
+               <div class="button" id="scissorsBtn">Dynamite</div>
+            </div>
+            <div id="computer-side">
+               <h4>Snark Message</h4>
+               <p>Your Score</p>
+               <span>You picked</span>
+               <span>Computer Picked</span>
+            </div>
          </div>
-         <div class="score-sheet">
-            <h1>Score Sheet</h1>
-            <table id="score-table">
-               <thead>
-                  <tr class="table-heading-row">
-                     <th>Round</th>
-                     <th>You Chose</th>
-                     <th>Computer Chose</th>
-                     <th>Winner</th>
-                     <th>Running Score</th>
-                  </tr>
-               </thead>
-               <tbody id="score-body"></tbody>
-            </table>
-         </div>
-      </main>
-      <footer>
-         <script src="script.js"></script>
-      </footer>
+         <footer>Made by <a href="https://tmsbkn.ca">Tomas Buchan</a></footer>
+      </div>
+      <script src="script.js"></script>
    </body>
 </html>

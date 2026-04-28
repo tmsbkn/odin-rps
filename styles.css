@@ -1,71 +1,65 @@
 :root{
     font-family: Inter, sans-serif;
-    font-size:18px;
+    --color-bg: #22222e;
+    --color-primary: rgb(68, 57, 103);
 }
-
 *{
     margin: 0;
     padding: 0;
-    font: inherit;
-    vertical-align: baseline;
+    box-sizing: border-box;
 }
 
-main{
-    padding: 2rem 2ch;
+body{
+    background-color: var(--color-bg);
+    color: white;
 }
-h1{
-    font-size: 1.5rem;
-    font-weight: 700;
-    padding-bottom: 0.1lh;
+.site-wrapper{
+    padding: 2rem;
+    width: min(100%, 800px);
+    margin: auto;
+    display: grid;
+    grid-template-rows: auto 1fr 1fr;
+    min-height: 100dvh;
+    align-items: end;
 }
-
-h2{
-    font-size: 1.25rem;
-    font-weight: 400;
-    padding-bottom: 0.1lh;
-}
-
-.button-wrapper{
-    margin-top: 10px;
+#game-area{
+    border: #000 solid 2px;
     display: flex;
-    gap: 1ch;
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 20px;
 }
 
-.button-wrapper button{
-    flex: 1;
-    height: 2em;
+#player-side, #computer-side{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    justify-content: center;
 }
-.score-sheet{
-    margin-top: 2rem;
-    padding: 1ch;
-    border: solid black 1px;
-}
-
-#score-table{
-    table-layout: auto;
-    border-collapse: collapse;
-    width: 100%;
-    font-size: clamp(0.5rem, 2.073vw + -0.036rem, 1rem);
+#computer-side{
+    height: 4rem;
 }
 
-.table-heading-row{
-    font-weight: 700;
-    text-align: left;
-    
-}
-tr{
-    padding: 10px;
-}
 
-td{
-    text-transform: capitalize;
-}
 
-@media screen and (max-width: 700px){
-    td:nth-child(3), th:nth-child(3){
-        display: none;
+.button{
+    background-color: var(--color-primary);
+    color: white;
+    height: 3rem;
+    border-radius: 100vw;
+    display: block;
+    align-content: center;
+    text-align: center;
+}
+.button:hover{
+    filter: brightness(1.1);
+}
+footer{
+    text-align: center;
+    a{color: white;}
+}
+@media (max-width:500px) {
+    #player-side, #computer-side{
+        grid-template-columns: repeat(2,1fr);
     }
-    /* body{
-        background-color: pink;
-    } */
 }
